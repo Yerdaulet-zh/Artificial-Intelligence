@@ -2,11 +2,6 @@ Optical character recognition is one of the exciting areas of computer vision th
 
 For demonstration purposes, I created an architecture through the PyTorch library using components such as CNN and GRU to solve the captcha dataset problem.
 
-- Encoder folder contains saved trained character encoding algorihtms   
-- Models folder contains saved trained models
-
-
-
 Captcha Dataset contains more than 113,000 colorful 5-character images.
 
 You can download the entire dataset using the link: 
