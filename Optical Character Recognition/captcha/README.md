@@ -4,5 +4,5 @@ For demonstration purposes, I created an architecture through the PyTorch librar
 
 Captcha Dataset contains more than 113,000 colorful 5-character images.
 
-You can download the entire dataset using the link: 
+The entire dataset is available at the link:
 https://www.kaggle.com/datasets/parsasam/captcha-dataset
