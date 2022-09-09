@@ -6,3 +6,6 @@ Captcha Dataset contains more than 113,000 colorful 5-character images.
 
 The entire dataset is available at the link:
 https://www.kaggle.com/datasets/parsasam/captcha-dataset
+
+
+![Figure 2022-09-07 174932](https://user-images.githubusercontent.com/61695069/189380297-208d46de-2ee8-43c0-90d7-4dd6d1e81409.png)
