@@ -2,7 +2,7 @@ Optical character recognition is one of the exciting areas of computer vision th
 
 For demonstration purposes, created and trained an architecture through the PyTorch library using components such as CNN and GRU to solve the captcha dataset problem.
 
-Captcha Dataset contains more than 113.000 colorful 5-character images.
+Captcha Dataset contains more than 113,000 colorful 5-character images.
 
 The entire dataset is available at the link:
 https://www.kaggle.com/datasets/parsasam/captcha-dataset
