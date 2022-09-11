@@ -2,7 +2,7 @@ import torch
 
 from tqdm import tqdm
 
-path = "../data/feedback-prize-english-language-learning/" # You should download the dataset and save it in the folder!
+path = "../data/feedback-prize-english-language-learning/" # You should download the dataset and save it in the data folder!
 encoder_path = "../encoder/binarizer_encoder.joblib"
 
 device = ("cuda" if torch.cuda.is_available() else "cpu")
