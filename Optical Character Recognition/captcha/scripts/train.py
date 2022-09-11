@@ -62,7 +62,7 @@ def start_trainig():
         "train_word_acc": train_word_acc,
         "test_word_acc": test_word_acc
     }, "../models/last_model.pt")
-    print("Model saved successfully")
+    print("\nModel saved successfully")
 
 if __name__ == "__main__":    
     start_trainig() 
