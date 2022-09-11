@@ -94,7 +94,7 @@ def metrics_(bs, pred, targets, lbl_enc):
 
 def train(model, criterion, optimizer, dataLoader, lbl_enc, calc_acc=None):
     model.train()
-    batch_loss, batch_size = 0, 0
+    batch_loss, batch_count = 0, 0
     len_correct, word_correct = [], [] 
     
     for images, targets in tqdm(dataLoader, position=0, total=len(dataLoader)):
@@ -105,20 +105,21 @@ def train(model, criterion, optimizer, dataLoader, lbl_enc, calc_acc=None):
         pred = model(images)
         pred = pred.permute(1, 0, 2) # pred.shape ==> (num_sequence, batch_size, num_classes)
         b_size = pred.shape[1]
-        batch_size += b_size
+
         input_lengths = torch.IntTensor(b_size).fill_(27)
         target_lengths = torch.IntTensor([len(t) for t in targets])
         loss = criterion(pred, targets, input_lengths, target_lengths)
         loss.backward()
-        batch_loss += loss 
         optimizer.step()
+        batch_loss += loss 
+        batch_count += 1
         
         if calc_acc:
             len_corr, word_corr = metrics_(b_size, pred.permute(1, 0, 2), targets, lbl_enc)
             len_correct.append(len_corr)
             word_correct.append(word_corr)
             
-    final_loss = batch_loss / batch_size
+    final_loss = batch_loss / batch_count
     
     if calc_acc:
         return final_loss, np.mean(len_correct), np.mean(word_correct)
@@ -129,7 +130,7 @@ def train(model, criterion, optimizer, dataLoader, lbl_enc, calc_acc=None):
 
 def test(model, criterion, dataLoader, lbl_enc, calc_acc=None):
     model.eval()
-    batch_loss, batch_size = 0, 0
+    batch_loss, batch_count = 0, 0
     len_correct, word_correct = [], [] 
     
     for images, targets in tqdm(dataLoader, position=0, total=len(dataLoader)):
@@ -139,16 +140,16 @@ def test(model, criterion, dataLoader, lbl_enc, calc_acc=None):
         pred = model(images)
         pred = pred.permute(1, 0, 2) # pred.shape ==> (num_sequence, batch_size, num_classes)
         b_size = pred.shape[1]
-        batch_size += b_size
         input_lengths = torch.IntTensor(b_size).fill_(27)
         target_lengths = torch.IntTensor([len(t) for t in targets])
         batch_loss += criterion(pred, targets, input_lengths, target_lengths)
+        batch_count += 1
         
         if calc_acc:
             len_corr, word_corr = metrics_(b_size, pred.permute(1, 0, 2), targets, lbl_enc)
             len_correct.append(len_corr)
             word_correct.append(word_corr)
-    final_loss = batch_loss / batch_size
+    final_loss = batch_loss / batch_count
     
     if calc_acc:
         return final_loss, np.mean(len_correct), np.mean(word_correct)
