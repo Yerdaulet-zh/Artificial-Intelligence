@@ -74,6 +74,7 @@ def save_best_model(epoch, model, train_loss, val_loss, min_val_loss):
             }, "../models/best_model.pt")
         min_val_loss = val_loss
         print("\nThe best model saved!")
+    return val_loss.item()
         
         
 def start_training(model, num_iter, optimizer, criterion, train_dataLoader, val_dataLoader, scheduler=None):
