@@ -1,4 +1,4 @@
-Entire dataset is available by the link: 
+The entire dataset is available at the link: 
 https://www.kaggle.com/competitions/feedback-prize-english-language-learning/data
 
 
