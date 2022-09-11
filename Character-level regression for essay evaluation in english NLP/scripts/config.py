@@ -65,7 +65,7 @@ def val(model, criterion, dataLoader):
 
 
 def save_best_model(epoch, model, train_loss, val_loss, min_val_loss):
-    if min_val_loss < val_loss.item():
+    if min_val_loss > val_loss.item():
         torch.save({
                 "epoch": epoch+1,
                 "model_state": model.state_dict(),
