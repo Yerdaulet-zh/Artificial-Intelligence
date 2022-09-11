@@ -84,7 +84,7 @@ def start_training(model, num_iter, optimizer, criterion, train_dataLoader, val_
         val_loss = val(model, criterion, train_dataLoader)
         print(f"Epoch: {epoch}/{num_iter} | Validation MSE loss: {val_loss}")
         
-        save_best_model(epoch, model, train_loss, val_loss, min_val_loss)
+        min_val_loss = save_best_model(epoch, model, train_loss, val_loss, min_val_loss)
     
     torch.save({
             "epoch": epoch+1,
