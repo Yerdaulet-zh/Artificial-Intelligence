@@ -54,7 +54,6 @@ def val(model, criterion, dataLoader):
             targets = targets.to(device)
 
             predicted = model(texts)
-
             loss = criterion(predicted, targets)
 
             count_comp += 1
