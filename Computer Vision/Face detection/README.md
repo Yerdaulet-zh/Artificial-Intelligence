@@ -61,11 +61,6 @@ Figure 4 – Representation of IoU calculation
  
 
  
-Figure 5 – Depiction of the task of object detection 
-
-Note – Figure 4 and 5 are compiled by the author of the article [4] 
-
- 
 
 For instance, according to figure 5, where the green is the perfect right rectangle, and the second blue rectangle is the predicted rectangle from the model, the task is to determine how much the prediction is accurate. According to figure 4, we take over intersected areas and divide the number of regions and get values from 0 to 1, the higher IoU value the better prediction of the model. 
 
@@ -123,7 +118,7 @@ There are various types of annotations for learning the YOLO algorithm, but we u
 
  
 
-Figure 9 is a good demonstration of PASCAL VOC XML formatting, all coordinates: x, y, width, and the height of the rectangle are normalized to image size, and central coordinates are defined. 
+A good demonstration of PASCAL VOC XML formatting, all coordinates: x, y, width, and the height of the rectangle are normalized to image size, and central coordinates are defined. 
 
  
 
